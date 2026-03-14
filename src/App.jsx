@@ -15,13 +15,13 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/products" element={<Products />} />
           <Route path="/Operations" element={<Operations />} />
-          <Route path="/MoveHistory" element={<MoveHistory />} />
           <Route path="/Setting" element={<Setting />} />
           <Route path="/ProfileMenu" element={<ProfileMenu />} />
+          <Route path="/MoveHistory" element={<MoveHistory />} />
         </Routes>
       </Layout>
     </BrowserRouter>
-  );
+  );  
 }
 
 export default App;

@@ -96,4 +96,4 @@ export default function AddProductModal({ closeModal, addProduct, editingProduct
 
     </div>
   );
-}
+} 

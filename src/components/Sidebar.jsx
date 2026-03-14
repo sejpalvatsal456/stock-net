@@ -38,7 +38,7 @@ export default function Sidebar() {
         </NavLink>
 
         <NavLink
-          to="/sales"
+          to="/Operations"
           className={({ isActive }) =>
             `flex items-center gap-3 p-4 rounded-xl transition
             ${isActive ? "bg-white shadow-md font-semibold" : "bg-gray-200 hover:bg-gray-300"}`
@@ -49,14 +49,14 @@ export default function Sidebar() {
         </NavLink>
 
         <NavLink
-          to="/purchases"
+          to="/MoveHistory"
           className={({ isActive }) =>
             `flex items-center gap-3 p-4 rounded-xl transition
             ${isActive ? "bg-white shadow-md font-semibold" : "bg-gray-200 hover:bg-gray-300"}`
           }
         >
           <CreditCard size={20} />
-          MoveHistory
+          Move History
         </NavLink>
 
         <NavLink
