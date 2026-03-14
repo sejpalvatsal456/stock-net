@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Plus, Package } from "lucide-react";
 
 export default function Products() {
@@ -101,52 +100,6 @@ export default function Products() {
       </div>
 
     </div>
+  
   );
 }
-=======
-import { useState } from "react";
-
-function Products() {
-
-  const [products, setProducts] = useState([]);
-  const [name, setName] = useState("");
-
-  const addProduct = () => {
-
-    if(name === "") return;
-
-    const newProduct = {
-      id: Date.now(),
-      name
-    };
-
-    setProducts([...products, newProduct]);
-    setName("");
-  };
-
-  return (
-    <div>
-
-      <h1>Products</h1>
-
-      <input
-        type="text"
-        placeholder="Product name"
-        value={name}
-        onChange={(e)=>setName(e.target.value)}
-      />
-
-      <button onClick={addProduct}>Add Product</button>
-
-      <ul>
-        {products.map((p)=>(
-          <li key={p.id}>{p.name}</li>
-        ))}
-      </ul>
-
-    </div>
-  );
-}
-
-export default Products;
->>>>>>> d607b07ae1d75ad4fe9e7c7ae31137a7b7a085ed

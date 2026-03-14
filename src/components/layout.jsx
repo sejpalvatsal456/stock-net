@@ -1,33 +1,26 @@
-import { Link } from "react-router-dom";
-import "./layout.css";
+import Sidebar from "./Sidebar";
+import Navbar from "./Navbar";
 
-function Layout({ children }) {
+export default function Layout({ children }) {
   return (
-    <div className="app">
+    <div className="flex h-screen bg-gray-100">
 
-      <div className="sidebar">
-        <h2>CoreInventory</h2>
+      {/* SIDEBAR */}
+      <Sidebar />
 
-        <Link to="/">Dashboard</Link>
-        <Link to="/products">Products</Link>
-        <Link to="/receipts">Receipts</Link>
-        <Link to="/deliveries">Deliveries</Link>
-      </div>
+      {/* RIGHT SIDE */}
+      <div className="flex flex-col flex-1">
 
-      <div className="main">
+        {/* TOP NAVBAR */}
+        <Navbar />
 
-        <div className="navbar">
-          <h3>Inventory Management System</h3>
-        </div>
-
-        <div className="content">
+        {/* PAGE CONTENT */}
+        <main className="flex-1 p-8 overflow-y-auto">
           {children}
-        </div>
+        </main>
 
       </div>
 
     </div>
   );
 }
-
-export default Layout;

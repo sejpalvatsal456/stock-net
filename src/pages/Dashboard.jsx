@@ -1,59 +1,20 @@
-<<<<<<< HEAD
 import { useState } from "react";
 import { Package, AlertCircle, Download, Truck, PlusCircle, Repeat } from "lucide-react";
 
 export default function Dashboard() {
 
+  const [showFilters, setShowFilters] = useState(false);
   const [docType, setDocType] = useState("");
   const [status, setStatus] = useState("");
   const [warehouse, setWarehouse] = useState("");
   const [category, setCategory] = useState("");
-  const [showFilters, setShowFilters] = useState(false);
-
-  const historyData = [
-    {
-      ref: "M1",
-      product: "Steel Rods",
-      type: "Receipt",
-      qty: 50,
-      status: "Done",
-      warehouse: "WH01",
-      category: "Metal"
-    },
-    {
-      ref: "M2",
-      product: "Laptop",
-      type: "Delivery",
-      qty: 5,
-      status: "Ready",
-      warehouse: "WH01",
-      category: "Electronics"
-    },
-    {
-      ref: "M3",
-      product: "Mouse",
-      type: "Internal",
-      qty: 20,
-      status: "Draft",
-      warehouse: "WH02",
-      category: "Electronics"
-    }
-  ];
-
-  const filteredData = historyData.filter(item => {
-    return (
-      (!docType || item.type === docType) &&
-      (!status || item.status === status) &&
-      (!warehouse || item.warehouse === warehouse) &&
-      (!category || item.category === category)
-    );
-  });
 
   return (
     <div className="space-y-6">
 
-      {/* HEADER */}
+      {/* TOP HEADER */}
       <div className="flex justify-between items-center">
+
         <div className="text-gray-500 text-sm">
           Dashboard / <span className="font-semibold text-black">Workspace</span>
         </div>
@@ -61,6 +22,7 @@ export default function Dashboard() {
         <div className="bg-gray-200 px-4 py-1 rounded-full text-sm">
           WH/01 - Primary Store
         </div>
+
       </div>
 
 
@@ -106,7 +68,7 @@ export default function Dashboard() {
       {/* MAIN SECTION */}
       <div className="grid grid-cols-3 gap-6">
 
-        {/* LEDGER */}
+        {/* WAREHOUSE LEDGER */}
         <div className="col-span-2 bg-white p-6 rounded-xl shadow">
 
           <div className="flex justify-between items-center mb-4">
@@ -122,130 +84,128 @@ export default function Dashboard() {
               Filters
             </button>
 
-      </div>
-
-
-      {/* FILTER PANEL */}
-      {showFilters && (
-        <div className="grid grid-cols-4 gap-3 mb-4">
-
-          <div>
-            <label className="text-xs font-semibold text-gray-600">
-              Document Type
-            </label>
-
-            <select
-              className="border p-1 text-sm rounded w-full"
-              value={docType}
-              onChange={(e) => setDocType(e.target.value)}
-            >
-              <option value="">All</option>
-              <option>Receipt</option>
-              <option>Delivery</option>
-              <option>Internal</option>
-              <option>Adjustment</option>
-            </select>
           </div>
 
 
-          <div>
-            <label className="text-xs font-semibold text-gray-600">
-              Status
-            </label>
+          {/* FILTER PANEL */}
+          {showFilters && (
+            <div className="grid grid-cols-4 gap-3 mb-4">
 
-            <select
-              className="border p-1 text-sm rounded w-full"
-              value={status}
-              onChange={(e) => setStatus(e.target.value)}
-            >
-              <option value="">All</option>
-              <option>Draft</option>
-              <option>Waiting</option>
-              <option>Ready</option>
-              <option>Done</option>
-              <option>Canceled</option>
-            </select>
-          </div>
+              <div>
+                <label className="text-xs font-semibold text-gray-600">
+                  Document Type
+                </label>
 
-          <div>
-            <label className="text-xs font-semibold text-gray-600">
-              Warehouse
-            </label>
-
-            <select
-              className="border p-1 text-sm rounded w-full"
-              value={warehouse}
-              onChange={(e) => setWarehouse(e.target.value)}
-            >
-              <option value="">All</option>
-              <option>WH01</option>
-              <option>WH02</option>
-            </select>
-          </div>
+                <select
+                  className="border p-1 text-sm rounded w-full"
+                  value={docType}
+                  onChange={(e) => setDocType(e.target.value)}
+                >
+                  <option value="">All</option>
+                  <option>Receipt</option>
+                  <option>Delivery</option>
+                  <option>Internal</option>
+                  <option>Adjustment</option>
+                </select>
+              </div>
 
 
-          <div>
-            <label className="text-xs font-semibold text-gray-600">
-              Category
-            </label>
+              <div>
+                <label className="text-xs font-semibold text-gray-600">
+                  Status
+                </label>
 
-            <select
-              className="border p-1 text-sm rounded w-full"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-            >
-              <option value="">All</option>
-              <option>Electronics</option>
-              <option>Metal</option>
-            </select>
-          </div>
+                <select
+                  className="border p-1 text-sm rounded w-full"
+                  value={status}
+                  onChange={(e) => setStatus(e.target.value)}
+                >
+                  <option value="">All</option>
+                  <option>Draft</option>
+                  <option>Waiting</option>
+                  <option>Ready</option>
+                  <option>Done</option>
+                  <option>Canceled</option>
+                </select>
+              </div>
+
+
+              <div>
+                <label className="text-xs font-semibold text-gray-600">
+                  Warehouse
+                </label>
+
+                <select
+                  className="border p-1 text-sm rounded w-full"
+                  value={warehouse}
+                  onChange={(e) => setWarehouse(e.target.value)}
+                >
+                  <option value="">All</option>
+                  <option>WH01</option>
+                  <option>WH02</option>
+                </select>
+              </div>
+
+
+              <div>
+                <label className="text-xs font-semibold text-gray-600">
+                  Category
+                </label>
+
+                <select
+                  className="border p-1 text-sm rounded w-full"
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
+                >
+                  <option value="">All</option>
+                  <option>Electronics</option>
+                  <option>Metal</option>
+                </select>
+              </div>
+
+            </div>
+          )}
+
+
+
+          {/* TABLE */}
+          <table className="w-full text-sm">
+
+            <thead className="text-gray-500 border-b">
+              <tr>
+                <th className="text-left py-2">REF</th>
+                <th className="text-left py-2">PRODUCT</th>
+                <th className="text-left py-2">TYPE</th>
+                <th className="text-left py-2">QTY</th>
+                <th className="text-left py-2">STATUS</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <tr className="border-b">
+                <td className="py-3">M1</td>
+                <td>Steel Rods</td>
+
+                <td>
+                  <span className="bg-green-100 text-green-600 px-2 py-1 rounded text-xs">
+                    RECEIPT
+                  </span>
+                </td>
+
+                <td>50</td>
+
+                <td className="text-green-600">
+                  Validated
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
 
         </div>
-        )
-      }
-
-
-
-      {/* TABLE */}
-      <table className="w-full text-sm">
-
-        <thead className="text-gray-500 border-b">
-          <tr>
-            <th className="text-left py-2">REF</th>
-            <th className="text-left py-2">PRODUCT</th>
-            <th className="text-left py-2">TYPE</th>
-            <th className="text-left py-2">QTY</th>
-            <th className="text-left py-2">STATUS</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {filteredData.map((item) => (
-            <tr key={item.ref} className="border-b">
-
-              <td className="py-3">{item.ref}</td>
-              <td>{item.product}</td>
-
-              <td>
-                <span className="bg-green-100 text-green-600 px-2 py-1 rounded text-xs">
-                  {item.type}
-                </span>
-              </td>
-
-              <td>{item.qty}</td>
-
-              <td className="text-green-600">
-                {item.status}
-              </td>
-
-            </tr>
-          ))}
-
-        </tbody>
-
-      </table>
-
-    </div>
 
 
 
@@ -270,49 +230,15 @@ export default function Dashboard() {
 
             <button className="w-full flex items-center gap-3 bg-blue-100 text-blue-700 p-3 rounded-lg">
               <Repeat size={20} />
-              Internal Transfer
+              Internal Transfer 
             </button>
 
           </div>
 
-=======
-function Dashboard() {
-  return (
-    <div>
-
-      <h1>Dashboard</h1>
-
-      <div className="cards">
-
-        <div className="card">
-          <h3>Total Products</h3>
-          <p>120</p>
-        </div>
-
-        <div className="card">
-          <h3>Low Stock</h3>
-          <p>6</p>
-        </div>
-
-        <div className="card">
-          <h3>Pending Deliveries</h3>
-          <p>4</p>
-        </div>
-
-        <div className="card">
-          <h3>Receipts Today</h3>
-          <p>3</p>
->>>>>>> d607b07ae1d75ad4fe9e7c7ae31137a7b7a085ed
         </div>
 
       </div>
 
     </div>
   );
-<<<<<<< HEAD
 }
-=======
-}
-
-export default Dashboard;
->>>>>>> d607b07ae1d75ad4fe9e7c7ae31137a7b7a085ed

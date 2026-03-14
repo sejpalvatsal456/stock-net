@@ -1,36 +1,80 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { Home, Package, Warehouse, ShoppingCart, CreditCard } from "lucide-react";
 
 export default function Sidebar() {
   return (
-    <div className="w-64 bg-white shadow-md h-screen">
+    <div className="w-64 bg-gray-100 min-h-screen p-6">
 
-      <div className="p-4 text-xl font-bold border-b">
+      {/* TITLE */}
+      <h1 className="text-2xl font-semibold mb-10">
         Inventory
-      </div>
+      </h1>
 
-      <nav className="flex flex-col p-4 gap-3 text-gray-700">
 
-        <Link to="/" className="hover:bg-blue-100 p-2 rounded">
+      {/* MENU */}
+      <nav className="flex flex-col gap-4">
+
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            `flex items-center gap-3 p-4 rounded-xl transition
+            ${isActive ? "bg-white shadow-md font-semibold" : "bg-gray-200 hover:bg-gray-300"}`
+          }
+        >
+          <Home size={20} />
           Home
-        </Link>
+        </NavLink>
 
-        <Link to="/products" className="hover:bg-blue-100 p-2 rounded">
+
+        <NavLink
+          to="/products"
+          className={({ isActive }) =>
+            `flex items-center gap-3 p-4 rounded-xl transition
+            ${isActive ? "bg-white shadow-md font-semibold" : "bg-gray-200 hover:bg-gray-300"}`
+          }
+        >
+          <Package size={20} />
           Items
-        </Link>
+        </NavLink>
 
-        <Link to="/inventory" className="hover:bg-blue-100 p-2 rounded">
+
+        <NavLink
+          to="/inventory"
+          className={({ isActive }) =>
+            `flex items-center gap-3 p-4 rounded-xl transition
+            ${isActive ? "bg-white shadow-md font-semibold" : "bg-gray-200 hover:bg-gray-300"}`
+          }
+        >
+          <Warehouse size={20} />
           Inventory
-        </Link>
+        </NavLink>
 
-        <Link to="/sales" className="hover:bg-blue-100 p-2 rounded">
+
+        <NavLink
+          to="/sales"
+          className={({ isActive }) =>
+            `flex items-center gap-3 p-4 rounded-xl transition
+            ${isActive ? "bg-white shadow-md font-semibold" : "bg-gray-200 hover:bg-gray-300"}`
+          }
+        >
+          <ShoppingCart size={20} />
           Sales
-        </Link>
+        </NavLink>
 
-        <Link to="/purchases" className="hover:bg-blue-100 p-2 rounded">
+
+        <NavLink
+          to="/purchases"
+          className={({ isActive }) =>
+            `flex items-center gap-3 p-4 rounded-xl transition
+            ${isActive ? "bg-white shadow-md font-semibold" : "bg-gray-200 hover:bg-gray-300"}`
+          }
+        >
+          <CreditCard size={20} />
           Purchases
-        </Link>
+        </NavLink>
 
       </nav>
+
     </div>
   );
 }
