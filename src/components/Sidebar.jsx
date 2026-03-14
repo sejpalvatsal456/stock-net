@@ -34,21 +34,8 @@ export default function Sidebar() {
           }
         >
           <Package size={20} />
-          Items
+          Products
         </NavLink>
-
-
-        <NavLink
-          to="/inventory"
-          className={({ isActive }) =>
-            `flex items-center gap-3 p-4 rounded-xl transition
-            ${isActive ? "bg-white shadow-md font-semibold" : "bg-gray-200 hover:bg-gray-300"}`
-          }
-        >
-          <Warehouse size={20} />
-          Inventory
-        </NavLink>
-
 
         <NavLink
           to="/sales"
@@ -58,9 +45,8 @@ export default function Sidebar() {
           }
         >
           <ShoppingCart size={20} />
-          Sales
+          Operations
         </NavLink>
-
 
         <NavLink
           to="/purchases"
@@ -70,9 +56,31 @@ export default function Sidebar() {
           }
         >
           <CreditCard size={20} />
-          Purchases
+          MoveHistory
         </NavLink>
 
+        <NavLink
+          to="/Setting"
+          className={({ isActive }) =>
+            `flex items-center gap-3 p-4 rounded-xl transition
+            ${isActive ? "bg-white shadow-md font-semibold" : "bg-gray-200 hover:bg-gray-300"}`
+          }
+        >
+          <CreditCard size={20} />
+          Setting
+          </NavLink>
+        
+        <NavLink
+          to="/ProfileMenu"
+          className={({ isActive }) =>
+            `flex items-center gap-3 p-4 rounded-xl transition
+            ${isActive ? "bg-white shadow-md font-semibold" : "bg-gray-200 hover:bg-gray-300"}`
+          }
+        >
+          <CreditCard size={20} />
+          Profile Menu
+          </NavLink>
+        
       </nav>
 
     </div>

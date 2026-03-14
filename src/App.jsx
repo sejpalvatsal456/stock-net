@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
-import Dashboard from "./pages/Dashboard";
 import Products from "./pages/Products";
-import Inventory from "./pages/Inventory";
-import Sales from "./pages/Sales";
-import Purchase from "./pages/Purchase";
+import Operations from "./pages/Operations";
+import MoveHistory from "./pages/MoveHistory";
+import Dashboard from "./pages/Dashboard";
+import Setting from "./pages/Setting";
+import ProfileMenu from "./pages/ProfileMenu";
 
 function App() {
   return (
@@ -13,9 +14,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/inventory" element={<Inventory />} />
-          <Route path="/sales" element={<Sales />} />
-          <Route path="/purchase" element={<Purchase />} />
+          <Route path="/Operations" element={<Operations />} />
+          <Route path="/MoveHistory" element={<MoveHistory />} />
+          <Route path="/Setting" element={<Setting />} />
+          <Route path="/ProfileMenu" element={<ProfileMenu />} />
         </Routes>
       </Layout>
     </BrowserRouter>

@@ -27,7 +27,7 @@ export default function Dashboard() {
 
 
       {/* STATS CARDS */}
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid grid-cols-4 gap-6">  
 
         <div className="bg-white p-6 rounded-xl shadow flex justify-between items-center">
           <div>

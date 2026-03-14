@@ -1,8 +1,8 @@
-function Receipts() {
+export function Setting() {
   return (
     <div>
 
-      <h1>Receipts</h1>
+      <h1>Setting</h1>
 
       <p>
         This section handles incoming goods from suppliers.
@@ -12,4 +12,4 @@ function Receipts() {
   );
 }
 
-export default Receipts;
+export default Setting;
